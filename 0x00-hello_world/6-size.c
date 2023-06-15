@@ -5,18 +5,18 @@
  */
 int main(void)
 {
-	printf("[Got]\n");
-	printf("Size of char: %d byte(s)\n", (int)sizeof(char);
-	printf("Size of int: %d byte(s)\n", (int)sizeof(int));
-	printf("Size of long int: %d byte(s)\n", (int)sizeof(long int));
-	printf("Size of long long int: %d byte(s)\n", (int)sizeof(long long int));
-	printf("Size of float: %d byte(s)\n", (int)sizeof(float));
-	printf("\n[Expected]\n");
-	printf("Size of a char: 1 byte(s)\n");
-	printf("Size of an int: 4 byte(s)\n");
-	printf("Size of a long int: 4 byte(s)\n");
-	printf("Size of a long long int: 8 byte(s)\n");
-	printf("Size of a float: 4 byte(s)\n");
-	printf("\n[stderr]: [Anything]\n");
+	#ifdef __LP64__
+    printf("Size of char: %ld byte(s)\n", sizeof(char));
+    printf("Size of int: %ld byte(s)\n", sizeof(int));
+    printf("Size of long int: %ld byte(s)\n", sizeof(long int));
+    printf("Size of long long int: %ld byte(s)\n", sizeof(long long int));
+    printf("Size of float: %ld byte(s)\n", sizeof(float));
+#else
+    printf("Size of char: %d byte(s)\n", sizeof(char));
+    printf("Size of int: %d byte(s)\n", sizeof(int));
+    printf("Size of long int: %d byte(s)\n", sizeof(long int));
+    printf("Size of long long int: %d byte(s)\n", sizeof(long long int));
+    printf("Size of float: %d byte(s)\n", sizeof(float));
+#endif
 	return (0);
 }
