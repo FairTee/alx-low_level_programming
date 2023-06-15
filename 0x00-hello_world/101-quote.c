@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <unistd.h>
 /**
  *main - The entry of our function
  *Return: Always 0 (Success)
