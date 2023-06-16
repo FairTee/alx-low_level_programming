@@ -1,10 +1,10 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
-/* more headers goes there */
-/*main - The entry of the fxn*/
-/*Return : Always successful(0)*/
-/* betty style doc for function main goes there */
+/**
+*main - The entry of the fxn
+*Return: Always successful(0)
+*/
 int main(void)
 {
 	int n;
