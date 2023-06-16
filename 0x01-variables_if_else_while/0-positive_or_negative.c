@@ -2,7 +2,8 @@
 #include <time.h>
 #include <stdio.h>
 /* more headers goes there */
-
+/*main - The entry of the fxn*/
+/*Return : Always successful(0)*/
 /* betty style doc for function main goes there */
 int main(void)
 {
