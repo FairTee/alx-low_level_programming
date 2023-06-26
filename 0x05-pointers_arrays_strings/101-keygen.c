@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#define LENGTH_PASSWRD 11
+
 /**
  * main- entry of the program
  * Return: Always 0
@@ -9,17 +9,29 @@
 
 int main(void)
 {
-	char p;
-	int x;
+	int psd[100];
+	int x, y, z;
+
+	y = 0;
 
 	srand(time(NULL));
 
-	while (x <= 2645)
+	for (x = 0; x < 100; x++)
 	{
-		p = rand() % 128;
-		x += p;
-		putchar(p);
+		psd[x] = rand() % 78;
+		y += (psd[x] + '0');
+		putchar(psd[x] + '0');
+
+		if ((2772 - y) - '0' < 78)
+		{
+			z = 2772 - y - '0';
+			y += z;
+			putchar(z + '0');
+			break;
+
+		}
+
 	}
-	putchar(2772- x)
 	return (0);
+
 }
