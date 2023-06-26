@@ -10,17 +10,40 @@
 
 int _atoi(char *s)
 {
-	unsigned int x = 0;
-	int y = 1;
+	int a, b, c, d, f, dgt;
 
-	do {
-		if (*s == '-')
-			y *= -1;
-		else if (*s >= '0' && *s <= '9')
-			x = (x * 10) + (*s - 0);
-		else if (x > 0)
-			break;
-	} while (*s++);
+	a = 0;
+	b = 0;
+	c = 0;
+	d = 0;
+	f = 0;
+	dgt = 0;
 
-	return (x * y);
+	while (s[d] != '\0')
+		d++;
+	while (a < d && f == 0)
+	{
+		if (s[a] == '-')
+			++b;
+
+		if (s[a] >= '0' && s[a] <= '9')
+		{
+			dgt = s[a] - '0';
+			if (b % 2)
+				dgt = -dgt;
+			c = c * 10 + dgt;
+			f = 1;
+			if (s[a + 1] < '0' || s[a + 1] > '9')
+				break;
+
+			f = 0;
+	}
+		a++;
 }
+	if (f == 0)
+	{
+	return (0);
+	}
+
+	return (c);
+	}
