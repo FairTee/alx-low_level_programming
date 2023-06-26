@@ -9,17 +9,17 @@
 
 int main(void)
 {
-	char passwrd[LENGTH_PASSWRD];
+	char p;
 	int x;
 
 	srand(time(NULL));
 
-	for (x = 0; x < LENGTH_PASSWRD - 1; x++)
+	while (x <= 2645)
 	{
-		passwrd[x] = rand() % 26 + 'c';
+		p = rand() % 128;
+		x += p;
+		putchar(p);
 	}
-	passwrd[LENGTH_PASSWRD - 1] = '\0';
-
-	printf("%s\n", passwrd);
+	putchar(2772- x)
 	return (0);
 }
