@@ -28,10 +28,10 @@ void print_buffer(char *b, int size)
 			if (z < y)
 				printf("%02x", *(b + w + z));
 			else
-				printf("  ");
+				printf(" ");
 			if (z % 2)
 			{
-				printf("  ");
+				printf(" ");
 			}
 		}
 		for (z = 0; z < y; z++)
