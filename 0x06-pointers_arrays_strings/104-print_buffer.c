@@ -1,53 +1,51 @@
-#include <stdio.h>
 #include "main.h"
+#include <stdio.h>
+
 /**
- * print_buffer - The buffer
- * @b: character
- * @size: the size
+ * print_buffer - prints buffer
+ * @b: Buffer
+ * @size: size
  * Return: void
  */
+
 void print_buffer(char *b, int size)
 {
-	int i, j;
+	int w, y, z;
+
+	w = 0;
 
 	if (size <= 0)
 	{
-	printf("\n");
+		printf("\n");
 		return;
 	}
-		for (i = 0; i < size; i += 10)
+	while (w < size)
 	{
-		printf("%08x: ", i);
-		for (j = i; j < i + 10; j++)
-	{
-		if (j < size)
-	{
-		printf("%02x", *(b + j));
-	}
-		else
-	{
-		printf("  ");
-	}
-		if (j % 2 == 1)
-	{
-		printf(" ");
-	}
-	}
-		for (j = i; j < i + 10; j++)
-	{
-		if (j >= size)
-	{
-		printf(" ");
-	}
-		else if (*(b + j) >= 32 && *(b + j) <= 126)
-	{
-		printf("%c", *(b + j));
-	}
-		else
+		y = size - w < 10 ? size - w : 10;
+		printf("%08x: ", w);
+		for (z = 0; z < 10; z++)
 		{
-			printf(".");
+			if (z < y)
+				printf("%02x", *(b + w + z));
+			else
+				printf("  ");
+			if (z % 2)
+			{
+				printf("  ");
+			}
 		}
-	}
+		for (z = 0; z < y; z++)
+		{
+			int q = *(b + w + z);
+
+			if (q < 32 || q > 132)
+			{
+				q = '.';
+			}
+			printf("%c", q);
+		}
 		printf("\n");
+		w += 10;
 	}
+	printf("\n");
 }
