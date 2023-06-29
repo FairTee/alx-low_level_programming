@@ -21,7 +21,7 @@ void print_buffer(char *b, int size)
 	}
 	while (w < size)
 	{
-		y = size -w < 10 ? size -w : 10;
+		y = size - w < 10 ? size - w : 10;
 		printf("%08x: ", w);
 		for (z = 0; z < 10; z++)
 		{
@@ -47,4 +47,4 @@ void print_buffer(char *b, int size)
 		printf("\n");
 		w += 10;
 	}
-}	
+}
