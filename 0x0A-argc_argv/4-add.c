@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdlib>
+#include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
 /**
@@ -36,9 +36,10 @@ int main(int argc, char *argv[])
 {
 	int count;
 	int str_to_int;
-	int total;
+	int total = 0;
 
 	count = 1;
+
 	while (count < argc)
 	{
 		if (check_num(argv[count]))
@@ -47,6 +48,7 @@ int main(int argc, char *argv[])
 			total += str_to_int;
 		}
 
+		else
 		{
 			printf("Error\n");
 			return (1);
