@@ -1,23 +1,10 @@
 #include "main.h"
-/**
- * _strpbrk - Entry
- * @s: input
- * @accept: input
- * Return: 0
- */
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
 
 char *_strpbrk(char *s, char *accept)
 {
-	int m;
-
-	while (*s)
-	{
-		for (m = 0; accept[m]; m++)
-		{
-			if (*s == accept[m])
-				return (s);
-		}
-		s++;
-	}
-	return ('\0');
+	return strpbrk(s, accept);
 }

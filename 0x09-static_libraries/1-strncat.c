@@ -1,33 +1,10 @@
 #include "main.h"
-
-/**
- * _strncat - Function that concatenates two strings
- * @dest: value
- * @src: input value
- * @n: input
- *Return: dest
- */
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
 
 char *_strncat(char *dest, char *src, int n)
 {
-	int a, b;
-
-	a = 0;
-
-	while (dest[a] != '\0')
-	{
-		a++;
-	}
-	b = 0;
-
-	while (b < n && src[b] != '\0')
-	{
-		dest[a] = src[b];
-		a++;
-		b++;
-	}
-
-	dest[a] = '\0';
-
-	return (dest);
+	return strncat(dest, src, n);
 }
