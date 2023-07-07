@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 		return (0);
 	}
 
-	for (n = 0; n < 5 && m >= 0; m++)
+	for (n = 0; n < 5 && m >= 0; n++)
 	{
 		while (m >= coins[n])
 		{
