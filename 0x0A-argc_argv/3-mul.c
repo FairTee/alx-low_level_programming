@@ -20,7 +20,7 @@ int _atoi(char *s)
 	{
 		if (s[a] == '-')
 
-			++d;
+			++b;
 
 		if (s[a] >= '0' && s[a] <= '9')
 		{
@@ -37,7 +37,7 @@ int _atoi(char *s)
 
 				break;
 
-			e = 0
+			e = 0;
 		}
 
 		a++;
@@ -74,7 +74,7 @@ int main(int argc, char *argv[])
 	n2 = _atoi(argv[2]);
 	total = n1 * n2;
 
-	printf("%d\n", result);
+	printf("%d\n", total);
 
 	return (0);
 }
