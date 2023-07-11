@@ -5,16 +5,23 @@
  * @str: The string to count words in
  * Return: Number of words in the strings
  */
-int count_words(char *str)
+int count_word(char *s)
 {
-	int i, count = 0;
+	int flag, v, w;
 
-	for (i = 0; str[i] != '\0'; i++)
+	flag = 0, w = 0;
+
+	for (v = 0; s[v] != '\0'; v++)
 	{
-		if (str[i] != ' ' && (str[i + 1] == ' ' || str[i + 1] == '\0'))
-			count++;
+		if (s[v] == ' ')
+			flag = 0;
+		else if (flag == 0)
+		{
+			flag = 1;
+			w++;
+		}
 	}
-	return (count);
+	return (w);
 }
 /**
  * strtow - Splits a string into words
@@ -23,44 +30,40 @@ int count_words(char *str)
  */
 char **strtow(char *str)
 {
-	char **words;
-	int i, j, k, len, n;
+	char **mat, *tmp;
+	int i, k = 0, len = 0, words, v = 0, strt, nd;
 
-	if (str == NULL || *str == '\0')
+	while (*(str + len))
+		len++;
+	words = count_word(str);
+	if (words == 0)
 		return (NULL);
-	while (*str == ' ')
-		str++;
-	if (*str == '\0')
-	{
-		words = malloc(sizeof(char *));
-		if (words == NULL)
-			return (NULL);
-		words[0] = NULL;
-		return (words);
-	}
-	n = count_words(str);
-	words = malloc((n + 1) * sizeof(char *));
-	if (words == NULL)
+
+	mat = (char **) malloc(sizeof(char *) * (words + 1));
+	if (mat == NULL)
 		return (NULL);
-	for (i = 0, k = 0; i < n; i++)
+
+	for (i = 0; i <= len; i++)
 	{
-		len = 0;
-		while (*(str + len) != ' ' && *(str + len) != '\0')
-			len++;
-		words[k] = malloc((len + 1) * sizeof(char));
-		if (words[k] == NULL)
+		if (str[i] == ' ' || str[i] == '\0')
 		{
-			for (j = 0; j < i; j++)
-				free(words[j]);
-			free(words);
-			return (NULL);
+			if (v)
+			{
+				nd = i;
+				tmp = (char *) malloc(sizeof(char) * (v + 1));
+				if (tmp == NULL)
+					return (NULL);
+				while (strt < nd)
+					*tmp++ = str[strt++];
+				*tmp = '\0';
+				mat[k] = tmp - v;
+				k++;
+				v = 0;
+			}
 		}
-		for (j = 0; j < len; j++)
-			words[k][j] = *(str++);
-		words[k++][j] = '\0';
-		while (*str == ' ')
-			str++;
+		else if (v++ == 0)
+			strt = i;
 	}
-	words[k] = NULL;
-	return (words);
+	mat[k] = NULL;
+	return (mat);
 }
