@@ -2,9 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char *create_buffer(char *file);
-void close_file(int fil);
-
 /**
  * create_buffer - Allocates bytes
  * @file: The name of file
