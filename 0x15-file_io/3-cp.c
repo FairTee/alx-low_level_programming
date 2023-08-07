@@ -6,9 +6,9 @@ char *create_buffer(char *file);
 void close_file(int fil);
 
 /**
- * create_buffer - allocates 1024 bytes
+ * create_buffer - Allocates bytes
  * @file: The name of file
- * Return: A ptr
+ * Return: 0
  */
 char *create_buffer(char *file)
 {
@@ -46,7 +46,7 @@ void close_file(int fil)
  * @argc: Number of arguments
  * @argv: array of ptrs
  * Return: 0
- * Description: exit code 97,98,99,100
+ * Description: exit code
  */
 int main(int argc, char *argv[])
 {
