@@ -21,7 +21,6 @@ void error_file(int file_from, int file_to, char *argv[])
 		exit(99);
 	}
 }
-
 /**
  * main - check the code for Holberton School students.
  * @argc: number of arguments.
