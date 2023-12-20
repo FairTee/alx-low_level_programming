@@ -1,0 +1,17 @@
+# Makefile for school executable
+
+# Compiler
+CC = gcc
+
+# Source files
+SRC = main.c school.c
+
+# Object files
+OBJ = $(SRC:.c=.o)
+
+# Executable name
+NAME = school
+
+# Compile and link the source files to create the executable
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
